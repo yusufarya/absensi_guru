@@ -1,0 +1,5 @@
+{
+    "vue.features.codeActions.enable": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "files.autoSave": "off"
+}
