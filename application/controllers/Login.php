@@ -13,14 +13,14 @@ class Login extends CI_Controller
     {
         $cekSession = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         // echo $cekSession;
-        if ($cekSession != '') { 
-            if($cekSession['level_id'] == 1) {
+        if ($cekSession != '') {
+            if ($cekSession['level_id'] == 1) {
                 redirect('dashboard');
-            } else if($cekSession['level_id'] == 2) {
-                redirect('staff'); 
-            } else if($cekSession['level_id'] == 3) {
+            } else if ($cekSession['level_id'] == 2) {
+                redirect('staff');
+            } else if ($cekSession['level_id'] == 3) {
                 redirect('home');
-            } 
+            }
         }
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -45,12 +45,12 @@ class Login extends CI_Controller
                     $data = [
                         'email' => $users['email']
                     ];
-                    $this->session->set_userdata($data);  
-                    if($users['level_id'] == 1) {
+                    $this->session->set_userdata($data);
+                    if ($users['level_id'] == 1) {
                         redirect('dashboard');
-                    } else if($users['level_id'] == 2) {
-                        redirect('staff'); 
-                    } else if($users['level_id'] == 3) {
+                    } else if ($users['level_id'] == 2) {
+                        redirect('staff');
+                    } else if ($users['level_id'] == 3) {
                         redirect('home');
                     }
                 } else {

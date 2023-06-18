@@ -13,7 +13,15 @@ class LoginAdmin extends CI_Controller
     {
         $cekSession = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         if ($cekSession != '') {
-            redirect('dashboard');
+            // redirect('dashboard');
+
+            if ($cekSession['level_id'] == 1) {
+                redirect('dashboard');
+            } else if ($cekSession['level_id'] == 2) {
+                redirect('staff');
+            } else if ($cekSession['level_id'] == 3) {
+                redirect('home');
+            }
         }
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -30,7 +38,14 @@ class LoginAdmin extends CI_Controller
     {
         $cekSession = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         if ($cekSession != '') {
-            redirect('dashboard');
+            // redirect('dashboard');
+            if ($cekSession['level_id'] == 1) {
+                redirect('dashboard');
+            } else if ($cekSession['level_id'] == 2) {
+                redirect('staff');
+            } else if ($cekSession['level_id'] == 3) {
+                redirect('home');
+            }
         }
         $email = $this->input->post('email');
         $password = $this->input->post('password');
@@ -44,7 +59,14 @@ class LoginAdmin extends CI_Controller
                         'email' => $Admin['email']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('dashboard');
+                    // redirect('dashboard');
+                    if ($Admin['level_id'] == 1) {
+                        redirect('dashboard');
+                    } else if ($Admin['level_id'] == 2) {
+                        redirect('staff');
+                    } else if ($Admin['level_id'] == 3) {
+                        redirect('home');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger py-1" role="alert">Wrong password!</div>');
                     redirect('admin');

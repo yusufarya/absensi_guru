@@ -50,7 +50,7 @@ class Dashboard extends CI_Controller
 
         $data['admin'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['lvluser'] = $data['admin']['level_id'];
-        $data['siswa'] = $this->User_model->getSiswa();
+        // $data['siswa'] = $this->User_model->getSiswa();
         $data['guru'] = $this->User_model->getGuru();
         $data['host'] = "http://$_SERVER[SERVER_NAME]/absensi_guru/assets/adminlte/";
         // var_dump($data['host']);
@@ -69,7 +69,7 @@ class Dashboard extends CI_Controller
 
         $data['admin'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['lvluser'] = $data['admin']['level_id'];
-        $data['siswa'] = $this->User_model->getSiswa();
+        // $data['siswa'] = $this->User_model->getSiswa();
         $data['guru'] = $this->User_model->getGuru();
         $data['host'] = "http://$_SERVER[SERVER_NAME]/absensi_guru/assets/adminlte/";
         // var_dump($data['host']);
