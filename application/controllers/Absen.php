@@ -56,15 +56,16 @@ class Absen extends CI_Controller
 
     function masuk()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $data['guru'] = $this->User_model->guruInfo();
         $no_absen = $data['guru']['no_absen'];
         // echo $no_absen;
         $qrygr = "SELECT * FROM users where no_absen = '" . $no_absen . "'";
         $gr = $this->db->query($qrygr)->row();
-        
-        $hari_ini = $this->hari_ini(); 
+
+        $hari_ini = $this->hari_ini();
         // echo $hari_ini;
-        
+
         $jam_sekarang = date('H:i:s');
         $kode_absen = "SELECT * FROM absen";
         $qryabs = $this->db->query($kode_absen)->row();
@@ -76,10 +77,10 @@ class Absen extends CI_Controller
         // $kehadiran = $this->db->query($qryhadir)->row();
         $mapel = $this->input->post('mapel_id');
 
-        if($mapel == '') {
+        if ($mapel == '') {
             $mapel = 0;
         }
-        
+
         if ($no_absen != $gr->no_absen) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf proses absen gagal</div>');
             redirect('home');
@@ -101,47 +102,60 @@ class Absen extends CI_Controller
         }
     }
 
-    function hari_ini(){
+    function keluar()
+    {
         date_default_timezone_set('Asia/Jakarta');
-        $hari = date ("D");
-     
-        switch($hari){
+        $hadir_id = $this->input->post('hadir_id');
+        $dataguru = $this->User_model->guruInfo();
+        $kodeGuru = $dataguru['kode'];
+        $jam_sekarang = date('H:i:s');
+        $this->db->update('kehadiran', ['jam_keluar' => $jam_sekarang, 'guru' => $kodeGuru], ['id' => $hadir_id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success py-2" role="alert">Berhasil, Anda telah absen</div>');
+        redirect('home');
+    }
+
+    function hari_ini()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $hari = date("D");
+
+        switch ($hari) {
             case 'Sun':
                 $hari_ini = "Minggu";
-            break;
-     
-            case 'Mon':			
+                break;
+
+            case 'Mon':
                 $hari_ini = "Senin";
-            break;
-     
+                break;
+
             case 'Tue':
                 $hari_ini = "Selasa";
-            break;
-     
+                break;
+
             case 'Wed':
                 $hari_ini = "Rabu";
-            break;
-     
+                break;
+
             case 'Thu':
                 $hari_ini = "Kamis";
-            break;
-     
+                break;
+
             case 'Fri':
                 $hari_ini = "Jumat";
-            break;
-     
+                break;
+
             case 'Sat':
                 $hari_ini = "Sabtu";
-            break;
-            
+                break;
+
             default:
-                $hari_ini = "Tidak di ketahui";		
-            break;
+                $hari_ini = "Tidak di ketahui";
+                break;
         }
 
         return $hari_ini;
-     
+
         // return "<b>" . $hari_ini . "</b>";
-     
+
     }
 }

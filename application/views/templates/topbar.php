@@ -7,7 +7,7 @@
                     <img src="<?php echo base_url('assets/img/') . $guru['gambar'] ?>" alt="profile" width="35" style="border: #ffff 1px solid; border-radius: 50%;">
                 </a>
                 <a class="nav-link <?php echo $title == 'Home' ? 'active' : '' ?>" href="<?php echo base_url('home') ?>">HOME</a>
-                <a class="nav-link <?php echo $title == 'Jadwal' ? 'active' : '' ?>" href="<?php echo base_url('guru/jadwal') ?>">JADWAL</a>
+                <a class="nav-link <?php echo $title == 'Jadwal' ? 'active' : '' ?>" href="<?php echo base_url('guru/jadwal') ?>" <?= $guru['level_id'] == 3 ? '' : 'hidden' ?>>JADWAL</a>
                 <a class="nav-link me-2 <?php echo $title == 'Riwayat Absensi' ? 'active' : '' ?>" href="<?php echo base_url('guru/kehadiran') ?>">KEHADIRAN</a>
                 <button class="text-dark btn btn-light py-0" data-bs-toggle="modal" data-bs-target="#logout">Logout</button>
             </nav>

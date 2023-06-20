@@ -69,14 +69,14 @@ class Absensi extends CI_Controller
     {
         $id = $this->input->post('id');
         $kode = $this->input->post('kode');
-        $kls = $this->input->post('kelas');
-        if ($kls) {
-            $kls = ', kelas = ' . $kls;
+        $batas_absen = $this->input->post('batas_absen');
+        if ($batas_absen) {
+            $batas_absen = ', batas_absen = "' . $batas_absen . '" ';
         } else {
-            $kls = '';
+            $batas_absen = '';
         }
         $semester = $this->input->post('semester');
-        $qry = "UPDATE absen SET kode_absen = '" . $kode . "', semester = " . $semester . " " . $kls . " WHERE id = " . $id;
+        $qry = "UPDATE absen SET kode_absen = '" . $kode . "', semester = " . $semester . " " . $batas_absen . " WHERE id = " . $id;
         // echo $qry; die();
         $this->db->query($qry);
         // return $update;

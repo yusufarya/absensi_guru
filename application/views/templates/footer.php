@@ -65,11 +65,12 @@
     }
 </script>
 <script>
-    function getKdAbs(id, n) { 
+    function getKdAbs(id, n) {
         // $('#nmpl').val(nama)
         var abs = $('#modal_abs')
         // var kdm = $('#kdM').val()
-        $('#mapel_id').val(id) 
+        $('#modal_abs .modal-title').text('Absen Masuk ?')
+        $('#mapel_id').val(id)
         abs.modal('show')
         $('#closeModal').on('click', function() {
             abs.modal('hide')
@@ -100,6 +101,34 @@
                     location.reload();
                 }
             });
+        });
+    }
+
+    function getKdAbs_out(hadir_id, n) {
+        // $('#nmpl').val(nama)
+        var abs = $('#modal_abs')
+        // var kdm = $('#kdM').val()
+        $('#modal_abs .modal-title').text('Absen Keluar ?')
+        $('#mapel_id').val(hadir_id)
+        abs.modal('show')
+        $('#closeModal').on('click', function() {
+            abs.modal('hide')
+        })
+        // alert(n)
+        $('#absMasuk').on('click', function() {
+            var mk = hadir_id
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: "<?php echo base_url('absen/keluar'); ?>",
+                data: {
+                    hadir_id: hadir_id
+                },
+                success: function() {
+                    abs.modal('hide')
+                }
+            });
+            location.reload();
         });
     }
 </script>

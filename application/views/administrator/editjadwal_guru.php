@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -39,25 +39,25 @@
                             <label for="hari" class="ml-1">Hari</label>
                             <select class="form-select form-control" name="hari" id="hari">
                                 <option value="">Pilih hari</option>
-                                <?php foreach ($hari as $key => $val): ?>
+                                <?php foreach ($hari as $key => $val) : ?>
                                     <option value="<?= $val['id'] ?>" <?= $val['id'] == $guru[0]->hari_id ? 'selected' : '' ?>><?= $val['hari'] ?></option>
-                                    
+
                                 <?php endforeach ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="jam_masuk" class="ml-1">Jam Masuk</label>
-                            <input type="time" class="form-control" id="jam_masuk" name="jam_masuk" value="<?php echo $guru[0]->jam_mulai ?>">
+                            <input type="text" class="form-control" id="jam_masuk" name="jam_masuk" value="<?php echo $guru[0]->jam_mulai ?>">
                         </div>
                         <div class="form-group">
                             <label for="batas_absen" class="ml-1">Batas Absen</label>
-                            <input type="time" class="form-control" id="batas_absen" name="batas_absen" value="<?php echo $guru[0]->batas_absen ?>">
+                            <input type="text" class="form-control" id="batas_absen" name="batas_absen" value="<?php echo $guru[0]->batas_absen ?>">
                         </div>
                         <div class="form-group">
                             <label for="jam_selesai" class="ml-1">Jam Selesai</label>
-                            <input type="time" class="form-control" id="jam_selesai" name="jam_selesai" value="<?php echo $guru[0]->jam_selesai ?>">
-                        </div> 
-                    </div> 
+                            <input type="text" class="form-control" id="jam_selesai" name="jam_selesai" value="<?php echo $guru[0]->jam_selesai ?>">
+                        </div>
+                    </div>
                 </div>
                 <a href="<?php echo base_url('jadwalGuru') ?>" class="btn btn-dark"> <i class="fa fa-chevron-left"></i> Kembali</a>
                 <button type="submit" class="btn btn-primary"> <i class="fa fa-share-square" aria-hidden="true"></i> Simpan</button>

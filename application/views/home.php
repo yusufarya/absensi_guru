@@ -1,19 +1,39 @@
 <?php
+
+date_default_timezone_set('Asia/Jakarta');
+$date = Date('Y/m/d');
+// jam saat ini
+$jam_sekarang = date('H:i:s');
+
 $kode_absen = "SELECT * FROM absen";
 $qryabs = $this->db->query($kode_absen)->row();
+$batas_absen = $qryabs->batas_absen;
 $kodeabs = $qryabs->kode_absen;
 $qrys = "SELECT * FROM users where no_absen = '" . $no_absen . "'";
 $k = $this->db->query($qrys)->row();
 $s_id = $k->kode;
 // echo $s_id;
-$kehadiran = "SELECT * FROM kehadiran where guru = '" . $s_id . "' and kode = '" . $kodeabs . "' and mapel_id = '0'";
-$hadir = $this->db->query($kehadiran)->row_array();
+$kehadiran_in = "SELECT * FROM kehadiran 
+                WHERE guru = '" . $s_id . "' AND kode = '" . $kodeabs . "' AND mapel_id = '0' 
+                AND tanggal = '" . date('Y-m-d') . "' ";
+$hadir = $this->db->query($kehadiran_in)->row_array();
 
 if ($hadir) {
-    $sudahkahAbsen = 'Y';
+    $sudahkahAbsenMasuk = 'Y';
 } else {
-    $sudahkahAbsen = 'N';
+    $sudahkahAbsenMasuk = 'N';
 }
+$kehadiran_out = "SELECT * FROM kehadiran 
+                WHERE guru = '" . $s_id . "' AND kode = '" . $kodeabs . "' AND mapel_id = '0' 
+                AND tanggal = '" . date('Y-m-d') . "' AND (jam_keluar <> '' OR jam_keluar IS NOT NULL )";
+$hadir_out = $this->db->query($kehadiran_out)->row_array();
+
+if ($hadir_out) {
+    $sudahkahAbsenKeluar = 'Y';
+} else {
+    $sudahkahAbsenKeluar = 'N';
+}
+// print_r($sudahkahAbsenKeluar);
 ?>
 <main class="px-0 mt-3">
     <div class="row px-4 justify-content-between" style="text-align: left;">
@@ -41,7 +61,7 @@ if ($hadir) {
                         <tr>
                             <td>Nis</td>
                             <td> &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; &nbsp; <?php echo $guru['nip'] ?></td>
-                        </tr> 
+                        </tr>
                         <tr>
                             <th>Status</th>
                             <?php
@@ -55,19 +75,32 @@ if ($hadir) {
                         </tr>
                     </table>
                 </div>
-                <?php if($guru['level_id'] == 2) { ?>
-                    <div class="col">
-                        <?php if($sudahkahAbsen == 'N') { ?>
-                            <button style="margin-top: 90px; float: right;" onclick="getKdAbs('', <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3" >ABSEN</button>
-                        <?php } else { ?> 
-                                <button style="margin-top: 90px; float: right;" class="btn btn-success me-3" >Telah Absen</button>
+                <?php if ($guru['level_id'] == 2) { ?>
+                    <div class="col-md-3">
+                        <?php if ($jam_sekarang < $batas_absen) { ?>
+                            <button style="margin-top: 90px; float: right;" class="btn btn-success me-3" disabled>Absen Telah Ditutup</button>
+                        <?php } else { ?>
+                            <?php if ($sudahkahAbsenMasuk == 'N') { ?>
+                                <button style="margin-top: 90px; float: right;" onclick="getKdAbs('', <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Masuk</button>
+                            <?php } else { ?>
+                                <button style="margin-top: 90px; float: right;" class="btn btn-success me-3">Telah Absen</button>
+                            <?php } ?>
+                        <?php } ?>
+                    </div>
+                    <div class="col-md-3">
+                        <?php if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'N') { ?>
+                            <button style="margin-top: 90px; float: right;" onclick="getKdAbs_out(<?= $hadir['id'] ?>, <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Keluar</button>
+                        <?php } else if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'Y') { ?>
+                            <button style="margin-top: 90px; float: right;" class="btn btn-success me-3">Telah Absen</button>
+                        <?php } else { ?>
+                            <button style="margin-top: 90px; float: right;" class="btn btn-dark me-3" disabled> Absen Keluar </button>
                         <?php } ?>
                     </div>
                 <?php } ?>
-                
+
             </div>
         </div>
-        
+
         <?php if ($guru['level_id'] == '3') { ?>
             <div class="row text-white">
                 <?php echo $this->session->flashdata('message') ?>
@@ -82,17 +115,13 @@ if ($hadir) {
                             <th style="text-align: center;">Jam Masuk</th>
                             <th style="text-align: center;">Sampai</th>
                             <th style="text-align: center; width: 10%;">Batas Absen</th>
-                            <th style="text-align: center;">Status</th> 
+                            <th style="text-align: center;">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
+                        <?php
                         $hari_ini = $now;
-                        foreach ($mapel as $m) : 
-                            date_default_timezone_set('Asia/Jakarta');
-                            $date = Date('Y/m/d');
-                            // jam saat ini
-                            $jam_sekarang = date('H:i:s');
+                        foreach ($mapel as $m) :
                             $batas = $m->batas_absen;
                             $jam = $m->jam_mulai;
                             $mulai = substr($jam, 0, 5);
@@ -100,10 +129,10 @@ if ($hadir) {
                             $batas_abs = substr($batas, 0, 5);
                             $sd = $m->jam_selesai;
                             $jam_selesai = substr($sd, 0, 5);
-    
+
                             $kodeM = $m->kode_mapel;
-    
-                            if ($guru['kode'] == $m->users && $hari_ini == $m->hari) { ?> 
+
+                            if ($guru['kode'] == $m->users && $hari_ini == $m->hari) { ?>
                                 <tr>
                                     <td><?php echo $kodeM ?></td>
                                     <td><?php echo $m->hari ?></td>
@@ -124,7 +153,7 @@ if ($hadir) {
                                     $kehadiran = "SELECT * FROM kehadiran where guru = '" . $s_id . "' and kode = '" . $kodeabs . "' and mapel_id = '" . $m->id . "'";
                                     $hadir = $this->db->query($kehadiran)->row_array();
                                     // var_dump($hadir);
-                                    
+
                                     if ($hadir) {
                                         $kode = $hadir['kode'];
                                         $mapel_id = $hadir['mapel_id'];
@@ -138,10 +167,10 @@ if ($hadir) {
                                     // print_r($hadir);
                                     // echo '</pre>';
                                     // echo $hadir ." == ".$kode. '<br>';
-                                    // echo $jam_sekarang ." == ".$m->jam_mulai. '<br>';
+                                    // echo $jam_sekarang . " == " . $m->jam_selesai . '<br>';
                                     // echo $jam_sekarang ." == ".$m->batas_absen. '<br>';
                                     if ($hadir == '' and $jam_sekarang <= $m->jam_selesai and $kode == '' and $s_id == '') { ?>
-                                        <?php if ($hadir == '' and $jam_sekarang <= $m->batas_absen OR $jam_sekarang <= $m->jam_mulai) { ?>
+                                        <?php if ($hadir == '' and $jam_sekarang <= $m->batas_absen or $jam_sekarang <= $m->jam_mulai) { ?>
                                             <td style="text-align: center;" onclick="getKdAbs(<?php echo $m->id; ?>, <?php echo $guru['no_absen'] ?>)"><button class="btn btn-sm btn-danger">Absen</button></td>
                                         <?php } else if ($jam_sekarang <= $m->jam_mulai and $jam_sekarang <= $m->batas_absen) { ?>
                                             <td style="text-align: center;"><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#" disabled>Belum mulai</button></td>
@@ -155,15 +184,15 @@ if ($hadir) {
                                     <?php } ?>
                                     <!-- <td onclick="getKdAbs(<?php echo $m->id; ?>, <?php echo $guru['no_absen'] ?>)"><button class="btn btn-sm btn-danger">Absen</button></td> -->
                                     <td></td>
-                                    
+
                                 </tr>
                             <?php } ?>
-    
+
                         <?php endforeach;
                         if ($hari_ini == 'Minggu') {
                             echo '<h1 style="background:red; margin-left:10px;">L I B U R</h1>';
                         }
-                        ?>    
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -176,19 +205,18 @@ if ($hadir) {
     <div class="modal-dialog">
         <div class="modal-content text-dark">
             <div class="modal-header">
-                <!-- <h5 class="modal-title" id="exampleModalLabel">Absen Mapel <i id="nmpl"></i></h5> -->
+                <h5 class="modal-title" id="exampleModalLabel">Absen Masuk ?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModal"></button>
             </div>
-            <form action="" method="POST">
-                <!-- <form action="<?php echo base_url('absen/masuk'); ?>" method="POST"> -->
-                <div class="modal-body" style="text-align: left;">
-                    <input type="hidden" name="mapel_id" id="mapel_id" class="form-control">
-                    <h5>Absen Masuk ?</h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="absMasuk" class="btn btn-primary">Masuk</button>
-                </div>
-            </form>
+            <!-- <form action="" method="POST"> -->
+            <div class="modal-body" style="text-align: left;">
+                <input type="hidden" name="mapel_id" id="mapel_id" class="form-control">
+                <!-- <h5>Absen Masuk ?</h5> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="absMasuk" class="btn btn-primary">Masuk</button>
+            </div>
+            <!-- </form> -->
         </div>
     </div>
 </div>

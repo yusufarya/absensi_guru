@@ -17,7 +17,7 @@
         <div class="row justify-content-center p-3 my-3">
             <div class="col-lg-10 col-md-10 col-12">
                 <h2 class="text-center">Login page</h2>
-                <p class="text-center rounded" style="background-color: #d2dbdb; width: 160px; margin: 1px auto; font-size: 14px;">Absensi Guru & Staf</p>
+                <!-- <p class="text-center rounded" style="background-color: #d2dbdb; width: 160px; margin: 1px auto; font-size: 14px;">Absensi Guru & Staf</p> -->
                 <div class="px-5 py-3">
                     <?php echo $this->session->flashdata('message') ?>
                     <form action="" method="post">
