@@ -7,6 +7,9 @@ if ($lvluser == 1) {
     $sysstatus = "Guru";
 }
 
+$staff = $this->db->get_where('users', ['level_id' => 2])->num_rows();
+print_r($staff);
+
 $qry = "SELECT * FROM users ORDER BY tgl_dibuat DESC limit 4";
 $query = $this->db->query($qry);
 $res = $query->result();
@@ -79,8 +82,8 @@ $log = $query->result();
                     <!-- small box -->
                     <div class="small-box bg-warning" style="border-right: 5px solid green; border-top-left-radius: 20px;">
                         <div class="inner pl-3 pt-2">
-                            <h3><?php echo $adm > 0 ? count($adm) : 0?></h3>
-                            <p>Total Admin</p>
+                            <h3><?php echo $staff > 0 ? $staff : 0 ?></h3>
+                            <p>Total Staf</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-stalker"></i>

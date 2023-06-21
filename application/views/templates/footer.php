@@ -124,6 +124,7 @@
                 data: {
                     hadir_id: hadir_id
                 },
+                async: false,
                 success: function() {
                     abs.modal('hide')
                 }

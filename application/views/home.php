@@ -77,7 +77,7 @@ if ($hadir_out) {
                 </div>
                 <?php if ($guru['level_id'] == 2) { ?>
                     <div class="col-md-3">
-                        <?php if ($jam_sekarang < $batas_absen) { ?>
+                        <?php if ($jam_sekarang >= $batas_absen) { ?>
                             <button style="margin-top: 90px; float: right;" class="btn btn-success me-3" disabled>Absen Telah Ditutup</button>
                         <?php } else { ?>
                             <?php if ($sudahkahAbsenMasuk == 'N') { ?>

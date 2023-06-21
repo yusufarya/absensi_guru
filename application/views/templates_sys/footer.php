@@ -61,9 +61,8 @@
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url('LoginAdmin/Logout') ?>',
-                    dataType: 'JSON', 
-                    success: function(data) {
-                    }
+                    dataType: 'JSON',
+                    success: function(data) {}
                 })
             } else {
                 // window.location.reload();
@@ -90,29 +89,29 @@
             d = date.getDate()
             m = date.getMonth()
             y = date.getFullYear()
-    
+
             valDate.append(d)
             $('#date').css('fontSize', '45px')
             $('#date').css('marginTop', '-5px')
             month.append(bulan[m])
             $('#month').css('marginTop', '-15px')
-            $('#month').css('fontSize', '37px')            
+            $('#month').css('fontSize', '37px')
         }
 
         function jam() {
-            setInterval(function () {
+            setInterval(function() {
                 var dateTime = document.querySelector('#dateTime')
                 var date = new Date(),
                     h, m, s;
                 h = date.getHours();
                 m = set(date.getMinutes());
                 s = set(date.getSeconds());
-    
+
                 dateTime.innerHTML = h + ':' + m + ':' + s;
                 dateTime.style.fontSize = '13.5px'
                 dateTime.style.marginTop = '2px'
                 dateTime.style.marginLeft = '2px'
-            }, 1000)    
+            }, 1000)
         }
 
         function set(dateTime) {
@@ -142,7 +141,7 @@
         var kls = $('#kelas').val()
         // var doc = document;
         if (semester == '') {
-            $('.errs').text(text)  
+            $('.errs').text(text)
         } else {
             bootbox.confirm('<h3>Buka rekap absen ?</h3>', function(res) {
                 if (res) {
@@ -153,7 +152,7 @@
                         data: {
                             minggu_ke: minggu_ke,
                             semester: semester,
-                            kelas:kls
+                            kelas: kls
                         },
                         success: function(data) {
                             // alert('ok')
@@ -188,9 +187,9 @@
                 // console.log()
                 $.each(e, function(data, i) {
                     // console.log(i)
-                    var table = '<tr><td>' + e[data].nama_guru + '</td><td>' + e[data].hari + '</td><td>' + e[data].pelajaran + '</td><td>' + e[data].kelas + '</td><td>' + e[data].jam_mulai + '</td><td>' + e[data].jam_selesai + 
-                    '</td><td><a href="<?= base_url('UpdateJadwal/') ?>' + e[data].id + '" ><i class="fas fa-edit"></i></a></td>'+
-                    '</tr>';
+                    var table = '<tr><td>' + e[data].nama_guru + '</td><td>' + e[data].hari + '</td><td>' + e[data].pelajaran + '</td><td>' + e[data].kelas + '</td><td>' + e[data].jam_mulai + '</td><td>' + e[data].jam_selesai +
+                        '</td><td><a href="<?= base_url('UpdateJadwal/') ?>' + e[data].id + '" ><i class="fas fa-edit"></i></a></td>' +
+                        '</tr>';
                     $('#detail').append(table)
                 })
                 console.log();
@@ -218,9 +217,9 @@
                         var s = '<div class="badge bg-danger py-1 px-2 text-center">Tidak Aktif</div>'
                     }
                     // console.log()
-                    var table = '<tr><td>' + no++ + '</td><td>' + data.nama + '</td><td>' + data.nis + '</td><td>' + data.kelass + '</td><td>' + data.jenis_kel + '</td><td>' + data.tempat_lahir+ ', '+ data.tgl_lahir + '</td><td>' + data.alamat + '</td><td style="text-align:center;">' + s + '</td>'+
-                    '<td><a href="<?= base_url('editdatasiswa_g/') ?>' + data.id + '" ><i class="fas fa-edit"></i> Edit </a></td>'+
-                    '</tr>';
+                    var table = '<tr><td>' + no++ + '</td><td>' + data.nama + '</td><td>' + data.nis + '</td><td>' + data.kelass + '</td><td>' + data.jenis_kel + '</td><td>' + data.tempat_lahir + ', ' + data.tgl_lahir + '</td><td>' + data.alamat + '</td><td style="text-align:center;">' + s + '</td>' +
+                        '<td><a href="<?= base_url('editdatasiswa_g/') ?>' + data.id + '" ><i class="fas fa-edit"></i> Edit </a></td>' +
+                        '</tr>';
                     $('#detail').append(table)
                 })
                 // console.log();
@@ -240,7 +239,8 @@
             dataType: 'JSON',
             url: "<?php echo base_url('General/getAbs') ?>",
             data: {
-                kode_abs: kode, kls: kls
+                kode_abs: kode,
+                kls: kls
             },
             success: function(e) {
                 // console.log()
@@ -254,15 +254,15 @@
                     var mapel = e[data].mapel
                     var tgl = e[data].tanggal
                     var stat = e[data].status
-                    if(stat == 'Y') {
+                    if (stat == 'Y') {
                         stat = '✔️'
                     } else {
                         stat = '❌'
                     }
                     var nama_guru = e[data].guru
                     // if(guru == nama_guru) {
-                        var table = '<tr><td>' + no++ + '</td><td>' + nama + '</td><td>' + nip + '</td><td>' + kelas + '</td><td>' + jnskel + '</td><td>' + jam + '</td><td>' + tgl + '</td><td>' + mapel + '</td><td>' + stat + '</td> </tr>';
-                        $('#detail').append(table)
+                    var table = '<tr><td>' + no++ + '</td><td>' + nama + '</td><td>' + nip + '</td><td>' + kelas + '</td><td>' + jnskel + '</td><td>' + jam + '</td><td>' + tgl + '</td><td>' + mapel + '</td><td>' + stat + '</td> </tr>';
+                    $('#detail').append(table)
                     // }
                     // console.log();
                 })
@@ -275,42 +275,55 @@
     $('#updateLap').on('click', function() {
         let kode = $('#kode').val()
         let semester = $('#semester').val()
-        bootbox.confirm('Simpan Laporan Absensi?', function(next) {
-            if (next) {
-                
-                $.ajax({
-                    type: 'POST',
-                    dataType: 'JSON',
-                    url: "<?php echo base_url('Absensi/updateLapAbs') ?>",
-                    data: {
-                        kode:kode, semester:semester
-                    },
-                    success: function(data) {
-                        console.log(data.status)
-                        if (data.status == 'success') {
-                            // alert('Berhasil');
-                            var ntf = `<div class="alert alert-success alert-dismissible fade show py-2" role="alert">
+        bootbox.confirm({
+            message: "Simpan Laporan Absensi? <br><hr> <small>Jika ya absensi hari ini akan ditutup, guru dan staff yang belum melakukan absensi akan di anggap tidak hadir</small>",
+            buttons: {
+                confirm: {
+                    label: 'Ya',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: 'Tidak',
+                    className: 'btn-secondary'
+                }
+            },
+            callback: function(result) {
+                if (result) {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'JSON',
+                        url: "<?php echo base_url('Absensi/updateLapAbs') ?>",
+                        data: {
+                            kode: kode,
+                            semester: semester
+                        },
+                        success: function(data) {
+                            console.log(data.status)
+                            if (data.status == 'success') {
+                                // alert('Berhasil');
+                                var ntf = `<div class="alert alert-success alert-dismissible fade show py-2" role="alert">
                                     <strong> ✔️ Berhasil. &nbsp;</strong> Absensi minggu ini telah disimpan ke Laporan Absensi. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" class="close py-2" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>`;
-                            $('#notif').append(ntf)
-                        } else {
-                            var ntf = `<div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
+                                $('#notif').append(ntf)
+                            } else {
+                                var ntf = `<div class="alert alert-warning alert-dismissible fade show py-2" role="alert">
                                     <strong> &nbsp;</strong> Absensi minggu ini telah disimpan ke Laporan Absensi. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button type="button" class="close py-2" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>`;
-                            $('#notif').append(ntf)
+                                $('#notif').append(ntf)
+                            }
                         }
-                    }
-                    
-                });
-                
+
+                    });
+                }
+
             }
-        })
+        });
     })
 </script>
 
