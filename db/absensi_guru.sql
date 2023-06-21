@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jun 2023 pada 10.27
+-- Waktu pembuatan: 21 Jun 2023 pada 08.15
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `absen` (
   `id` int(11) NOT NULL,
   `kode_absen` char(35) NOT NULL,
+  `batas_absen` time DEFAULT NULL,
   `semester` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,8 +38,8 @@ CREATE TABLE `absen` (
 -- Dumping data untuk tabel `absen`
 --
 
-INSERT INTO `absen` (`id`, `kode_absen`, `semester`) VALUES
-(1, '001', 1);
+INSERT INTO `absen` (`id`, `kode_absen`, `batas_absen`, `semester`) VALUES
+(1, '001', '08:10:00', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +122,7 @@ CREATE TABLE `kehadiran` (
   `kode` char(20) NOT NULL,
   `semester` char(15) NOT NULL,
   `jam` time NOT NULL,
+  `jam_keluar` time DEFAULT NULL,
   `tanggal` date NOT NULL,
   `status` char(10) NOT NULL,
   `keterangan` varchar(50) NOT NULL,
@@ -132,45 +134,9 @@ CREATE TABLE `kehadiran` (
 -- Dumping data untuk tabel `kehadiran`
 --
 
-INSERT INTO `kehadiran` (`id`, `guru`, `kode`, `semester`, `jam`, `tanggal`, `status`, `keterangan`, `mapel_id`, `hari`) VALUES
-(9, 8, '001', '1', '00:56:00', '2023-06-01', 'Y', 'Hadir', '57', 'Kamis'),
-(33, 10, '001', '1', '12:23:02', '2023-06-10', 'Y', 'Hadir', '1', 'Sabtu'),
-(34, 13, '001', '1', '13:30:30', '2023-06-10', 'Y', 'Hadir', '9', 'Sabtu'),
-(35, 14, '001', '1', '13:40:54', '2023-06-10', 'Y', 'Hadir', '0', 'Sabtu'),
-(40, 2, '001', '1', '13:50:46', '2023-06-10', 'Y', 'Hadir', '0', 'Sabtu'),
-(253, 6, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(254, 8, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(255, 9, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(256, 10, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(257, 11, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(258, 12, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(259, 13, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '', ''),
-(260, 6, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(261, 8, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(262, 9, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(263, 10, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(264, 11, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(265, 12, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '9', 'Sabtu'),
-(266, 6, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(267, 8, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(268, 9, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(269, 11, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(270, 12, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(271, 13, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '1', 'Sabtu'),
-(272, 6, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(273, 8, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(274, 9, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(275, 10, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(276, 11, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(277, 12, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(278, 13, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '6', 'Sabtu'),
-(279, 6, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(280, 8, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(281, 9, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(282, 10, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(283, 11, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(284, 12, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu'),
-(285, 13, '001', '1', '00:00:00', '0000-00-00', 'N', 'Tidak Hadir', '59', 'Sabtu');
+INSERT INTO `kehadiran` (`id`, `guru`, `kode`, `semester`, `jam`, `jam_keluar`, `tanggal`, `status`, `keterangan`, `mapel_id`, `hari`) VALUES
+(293, 2, '001', '1', '23:19:35', '23:33:25', '2023-06-20', 'Y', 'Hadir', '0', 'Selasa'),
+(294, 10, '001', '1', '23:29:22', NULL, '2023-06-20', 'Y', 'Hadir', '12', 'Selasa');
 
 -- --------------------------------------------------------
 
@@ -753,7 +719,39 @@ INSERT INTO `log_aktivitas` (`id`, `nama`, `jam`, `tanggal`, `keterangan`) VALUE
 (611, 'Admin absensi', '14:34:48', '2023-06-10', 'Mengganti kode pertemuan'),
 (612, 'Admin absensi', '14:34:54', '2023-06-10', 'Mengganti kode pertemuan'),
 (613, 'Admin absensi', '15:20:12', '2023-06-10', 'Melihat Mata Pelajaran Guru'),
-(614, 'Admin absensi', '15:20:22', '2023-06-10', 'Mengganti kode pertemuan');
+(614, 'Admin absensi', '15:20:22', '2023-06-10', 'Mengganti kode pertemuan'),
+(615, 'Admin absensi', '20:54:52', '2023-06-14', 'Melihat Data User'),
+(616, 'Admin absensi', '20:57:31', '2023-06-14', 'Melihat Data User'),
+(617, 'Admin absensi', '20:57:36', '2023-06-14', 'Melihat Data Guru '),
+(618, 'Admin absensi', '20:57:44', '2023-06-14', 'Melihat Data Guru '),
+(619, 'Admin absensi', '20:57:57', '2023-06-14', 'Melihat Data Guru '),
+(620, 'Admin absensi', '20:58:01', '2023-06-14', 'Melihat Data User'),
+(621, 'Admin absensi', '20:58:08', '2023-06-14', 'Melihat Data Staf'),
+(622, 'Admin absensi', '20:58:12', '2023-06-14', 'Melihat Mata Pelajaran Guru'),
+(623, 'Admin absensi', '20:58:15', '2023-06-14', 'Melihat Jadwal Guru'),
+(624, 'Admin absensi', '20:58:52', '2023-06-14', 'Melihat Data User'),
+(625, 'Admin absensi', '21:01:16', '2023-06-14', 'Melihat Data User'),
+(626, 'Admin absensi', '21:01:24', '2023-06-14', 'Melihat Data User'),
+(627, 'Admin absensi', '21:01:36', '2023-06-14', 'Melihat Data User'),
+(628, 'Admin absensi', '21:01:45', '2023-06-14', 'Melihat Mata Pelajaran Guru'),
+(629, 'Admin absensi', '21:01:49', '2023-06-14', 'Melihat Jadwal Guru'),
+(630, 'Admin absensi', '22:14:28', '2023-06-18', 'Melihat Data User'),
+(631, 'Admin absensi', '22:14:31', '2023-06-18', 'Melihat Data Guru '),
+(632, 'Admin absensi', '22:14:33', '2023-06-18', 'Melihat Data Staf'),
+(633, 'Admin absensi', '22:14:36', '2023-06-18', 'Melihat Data Guru '),
+(634, 'Admin absensi', '22:13:17', '2023-06-20', 'Mengganti kode pertemuan'),
+(635, 'Admin absensi', '23:14:40', '2023-06-20', 'Melihat Jadwal Guru'),
+(636, '', '23:14:54', '2023-06-20', 'Mengubah jadwal guru '),
+(637, 'Admin absensi', '23:14:54', '2023-06-20', 'Melihat Jadwal Guru'),
+(638, 'Admin absensi', '23:21:43', '2023-06-20', 'Melihat Jadwal Guru'),
+(639, '', '23:22:55', '2023-06-20', 'Mengubah jadwal guru '),
+(640, 'Admin absensi', '23:22:55', '2023-06-20', 'Melihat Jadwal Guru'),
+(641, 'Admin absensi', '23:23:36', '2023-06-20', 'Melihat Jadwal Guru'),
+(642, '', '23:24:12', '2023-06-20', 'Mengubah jadwal guru '),
+(643, 'Admin absensi', '23:24:12', '2023-06-20', 'Melihat Jadwal Guru'),
+(644, 'Admin absensi', '23:27:38', '2023-06-20', 'Melihat Jadwal Guru'),
+(645, '', '23:29:03', '2023-06-20', 'Mengubah jadwal guru '),
+(646, 'Admin absensi', '23:29:03', '2023-06-20', 'Melihat Jadwal Guru');
 
 -- --------------------------------------------------------
 
@@ -790,7 +788,7 @@ INSERT INTO `mapel` (`id`, `kode_mapel`, `pelajaran`, `jam_mulai`, `batas_absen`
 (9, '00008', 'Sosiologi', '13:30:00', '13:40:00', '14:05:00', 13, 6, '1', 'IPS'),
 (10, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 0, 3, '1', ''),
 (11, '00003', 'Sejarah', '10:05:00', '10:15:00', '11:25:00', 12, 4, '1', 'IPS'),
-(12, '00001', 'Bahasa Inggris', '09:55:00', '11:05:00', '12:10:00', 10, 1, '2', ''),
+(12, '00001', 'Bahasa Inggris', '22:30:00', '23:57:00', '23:59:00', 10, 2, '2', ''),
 (13, '00009', 'Geografi', '07:25:00', '07:35:00', '08:25:00', 0, 2, '1', 'IPS'),
 (15, '00002', 'Matematika', '10:06:30', NULL, '11:45:59', 0, 6, '2', ''),
 (16, '00003', 'Sejarah', '21:31:00', '21:50:55', '22:16:00', 12, 1, '2', 'IPS'),
@@ -969,7 +967,7 @@ ALTER TABLE `kd_minggu`
 -- AUTO_INCREMENT untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelas`
@@ -987,7 +985,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT untuk tabel `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=615;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=647;
 
 --
 -- AUTO_INCREMENT untuk tabel `mapel`
