@@ -66,6 +66,7 @@
 </script>
 <script>
     function getKdAbs(id, n) {
+        console.log(id)
         // $('#nmpl').val(nama)
         var abs = $('#modal_abs')
         // var kdm = $('#kdM').val()
@@ -93,6 +94,7 @@
                         data: {
                             mapel_id: mk
                         },
+                        async: false,
                         success: function() {
 
                         }

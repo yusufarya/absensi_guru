@@ -153,13 +153,14 @@ class LoginAdmin extends CI_Controller
             $new_date = date('Y-m-d');
             $level = $this->input->post('level_id');
 
-            if ($level != 1) {
-                $getLast_noabs = "select MAX(no_absen) AS ABS from users";
+            if ($level > 1) {
+                $getLast_noabs = "select MAX(no_absen) AS no_abs from users where level_id > 1";
                 $getNo_abs = $this->db->query($getLast_noabs)->row_array();
-                $no_abs = $getNo_abs['ABS'] + 1;
+                $no_abs = $getNo_abs['no_abs'] + 1;
             } else {
                 $no_abs = 0;
             }
+
             $data = [
                 'nama'      => $this->input->post('nama'),
                 'nip'       => $this->input->post('nip'),
@@ -504,19 +505,21 @@ class LoginAdmin extends CI_Controller
 
     function cekUbahPassword()
     {
-        $data['sysuser'] = $this->db->get_where('sysuser', ['email' => $this->session->userdata('email')])->row_array();
+        $data['sysuser'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $currPass = $data['sysuser']['password'];
         $current_password = $this->input->post('current_password');
         $new_password = $this->input->post('new_password1');
-
+        // print_r($current_password);
+        // print_r($new_password);
+        // die();
         // cek password user yg telah ada di database
         if (!password_verify($current_password, $currPass)) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong Current Password!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Sandi saat ini salah!</div>');
             redirect('settingPassword');
         } else { // Jika password benar kemudian
             // cek Password baru , tidak boleh sama dengan Password lama
             if ($current_password == $new_password) {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong Current Password!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Sandi baru tidak boleh sama dengan sandi saat ini!</div>');
                 redirect('settingPassword');
             } else {
                 // Password sudah OK nih
@@ -524,17 +527,17 @@ class LoginAdmin extends CI_Controller
 
                 $this->db->set('password', $password_hash);
                 $this->db->where('email', $this->session->userdata('email'));
-                $this->db->update('sysuser');
+                $this->db->update('users');
 
                 $success = $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Password anda berhasil diubah.</div>');
-                if ($success != '') {
+                if ($success) {
                     $data = array('status' => 'success', 'data' => $success);
                 } else {
                     $data = array('status' => 'failed');
                 }
                 $ket = 'Mengubah Password';
-                $data['sysuser'] = $this->db->get_where('sysuser', ['email' => $this->session->userdata('email')])->row_array();
-                $nama = $data['sysuser']['nama'];
+                $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+                $nama = $data['users']['nama'];
                 date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
                 $jam = date('H:i:s');
                 $tgl = date('Y-m-d');

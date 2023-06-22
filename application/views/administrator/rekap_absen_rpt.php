@@ -1,10 +1,11 @@
 <!-- Content Wrapper. Contains page content -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<div class="content-wrapper" onload='window.open("", "rpt" , " width=180,height=650" )'>
+<div class="content-wrapper" onload='window.open("", "rpt" , " width=250,height=650" )'>
     <style>
         section {
             padding: 8px 20px;
         }
+
         h1,
         h3 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -33,8 +34,8 @@
         </button>
 
         <div style="float: right; text-align:left; font-size: 12px; margin-right:18px;">
-            <p style="margin-bottom: -8px !important;">✔️ &nbsp; Hadir</p> 
-            <p style="margin-bottom: -8px !important;">❌ &nbsp; Tidak Hadir</p> 
+            <p style="margin-bottom: -8px !important;">✔️ &nbsp; Hadir</p>
+            <p style="margin-bottom: -8px !important;">❌ &nbsp; Tidak Hadir</p>
             <p style="margin-bottom: -8px !important;">Kode&nbsp;=&nbsp;Kode Pertemuan</p>
         </div>
 
@@ -60,9 +61,10 @@
                                 <th>Kode</th>
                                 <th>Nama</th>
                                 <th>NIS</th>
-                                <!-- <th>Kelas</th> -->
                                 <th>Jenis Kelamin</th>
-                                <th>Jam</th>
+                                <th>Jam Masuk</th>
+                                <th>Jam Keluar</th>
+                                <th>Kelas</th>
                                 <th>Hari</th>
                                 <th>Tanggal</th>
                                 <th>Pelajaran</th>
@@ -70,33 +72,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+                            <?php
                             $no = 1;
-                            foreach($rekapData as $data) {  
-                                ?>
+                            foreach ($rekapData as $data) {
+                            ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo $data->kode ?></td>
                                     <td><?php echo $data->guru ?></td>
                                     <td><?php echo $data->nip ?></td>
-                                    <!-- <td><?php echo $data->kelas ?></td> -->
                                     <td><?php echo $data->jenis_kel ?></td>
                                     <?php if ($data->status == 'Y') { ?>
-                                        <td><?php echo substr($data->jam, 0 ,5) ?></td>
+                                        <td style="text-align: center;"><?php echo substr($data->jam, 0, 5) ?></td>
+                                        <td style="text-align: center;"><?php echo substr($data->jam_keluar, 0, 5) ?></td>
+                                        <td><?php echo $data->kelas ?></td>
                                         <td><?php echo $data->hari ?></td>
                                         <td><?php echo date('d/m/Y', strtotime($data->tanggal)) ?></td>
                                     <?php } else { ?>
-                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;">  </td>
-                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;">  </td>
-                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;">  </td>
-                                    <?php } 
+                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;"> </td>
+                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;"> </td>
+                                        <td colspan="1" style="text-align:center; font-size: 12.5px; color:red;"> </td>
+                                    <?php }
                                     if ($data->status == 'Y') {
                                         $status = '✔️';
                                     } else {
                                         $status = '❌';
                                     }
-                                    ?> 
-                                    
+                                    ?>
+
                                     <td><?php echo $data->mapel ?></td>
                                     <td style="text-align:center;"><?php echo $status ?></td>
                                 </tr>

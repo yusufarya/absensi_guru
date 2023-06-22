@@ -166,7 +166,7 @@
     })
 
     function openRpt() {
-        window.popup = window.open('<?php echo base_url('Absensi/rekapAbsenRpt') ?>', 'rpt', 'width=890, height=560, top=100, left=200, toolbar=1');
+        window.popup = window.open('<?php echo base_url('Absensi/rekapAbsenRpt') ?>', 'rpt', 'width=1200, height=560, top=20, left=10, toolbar=1');
     }
 </script>
 

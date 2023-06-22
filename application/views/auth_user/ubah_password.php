@@ -63,11 +63,11 @@ if ($lvluser == 1) {
 
 <script>
     function ubahPassword() {
-        var url = "<?php echo base_url('auth_user/cekUbahPassword') ?>";
+        var url = "<?php echo base_url('LoginAdmin/cekUbahPassword') ?>";
         var nama = $('#nama').val();
         var currpass = $('#current_password').val();
         var newpass1 = $('#new_password1').val();
-        // var newpass2 = $('#new_password2').val();
+        var newpass2 = $('#new_password2').val();
         console.log(currpass)
         console.log(newpass1)
         bootbox.confirm("Yakin ingin merubah password ?", function(next) {
@@ -79,7 +79,8 @@ if ($lvluser == 1) {
                     url: url,
                     data: {
                         current_password: currpass,
-                        new_password1: newpass1
+                        new_password1: newpass1,
+                        new_password2: newpass2
                     },
                     success: function(status) {
                         // console.log(status)

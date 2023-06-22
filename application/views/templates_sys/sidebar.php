@@ -105,9 +105,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item ml-2">
-                        <a href="<?php echo base_url('absensi') ?>" class="nav-link <?php echo $title == 'Absensi' ? 'bg' : '' ?>">
+                        <a href="<?php echo base_url('absensi') ?>" class="nav-link <?php echo $title == 'Absensi Guru' ? 'bg' : '' ?>">
                             <p>
-                                Absensi
+                                Absensi Guru
                                 <!-- <span class="badge badge-inf`o right">2</span> -->
                             </p>
                         </a>

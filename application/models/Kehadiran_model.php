@@ -6,12 +6,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Kehadiran_model extends CI_Model
 {
-    function getDataAbsen()
-    { 
+    function getDataAbsenGuru()
+    {
         $qry = "SELECT k.*, mg.nama AS mg_ke, gr.nama AS nama_guru, m.pelajaran AS mapel
                 FROM kehadiran k 
                 JOIN mapel m ON k.mapel_id = m.id
                 JOIN users gr ON m.guru = gr.kode
+                JOIN kd_minggu mg ON k.kode = mg.kode
+                ORDER BY k.kode, k.hari";
+        $query = $this->db->query($qry);
+        $return = $query->result();
+        // var_dump($return);
+        return $return;
+    }
+
+    function getDataAbsenStaff()
+    {
+        $qry = "SELECT k.*, mg.nama AS mg_ke, gr.nama AS nama_guru
+                FROM kehadiran k 
+                JOIN users gr ON k.guru = gr.kode
                 JOIN kd_minggu mg ON k.kode = mg.kode
                 ORDER BY k.kode, k.hari";
         $query = $this->db->query($qry);
@@ -37,10 +50,11 @@ class Kehadiran_model extends CI_Model
         } else {
             $qrs = '';
         }
-        $qry = "SELECT DISTINCT K.*, g.nip, g.nama as guru, g.jenis_kel, m.pelajaran AS mapel
+        $qry = "SELECT DISTINCT K.*, g.nip, g.nama as guru, g.jenis_kel, m.pelajaran AS mapel, kls.kelas
                 FROM kehadiran k
                 JOIN users as g on g.kode=k.guru
                 LEFT JOIN mapel as m on m.guru=g.kode
+                LEFT JOIN kelas as kls on kls.id=m.kelas
                 " . $qrkode . " " . $qrs . " " . $qrkls . "
                 ORDER BY k.kode, k.hari";
 
@@ -65,8 +79,9 @@ class Kehadiran_model extends CI_Model
         return $result;
     }
 
-    function UpLapAbs($idGuru, $kode, $semester, $id_m, $hari) {
-        $insert = "INSERT INTO `kehadiran` (`id`, `guru`, `kode`, `semester`, `jam`, `tanggal`, `status`, `keterangan`, `mapel_id`, `hari`) VALUES (NULL, '".$idGuru."', '".$kode."', '".$semester."', 'NULL', 'NULL', 'N', 'Tidak Hadir', '".$id_m."', '".$hari."')";
+    function UpLapAbs($idGuru, $kode, $semester, $id_m, $hari)
+    {
+        $insert = "INSERT INTO `kehadiran` (`id`, `guru`, `kode`, `semester`, `jam`, `tanggal`, `status`, `keterangan`, `mapel_id`, `hari`) VALUES (NULL, '" . $idGuru . "', '" . $kode . "', '" . $semester . "', 'NULL', 'NULL', 'N', 'Tidak Hadir', '" . $id_m . "', '" . $hari . "')";
         $query = $this->db->query($insert);
         // $result = $query->result();
         return true;

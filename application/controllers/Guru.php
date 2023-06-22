@@ -34,10 +34,13 @@ class Guru extends CI_Controller
     function kehadiran()
     {
         $data['title'] = 'Riwayat Absensi';
-        
+
         $data['guru'] = $this->User_model->guruInfo();
-        // print_r($data['siswa']);
-        $data['kehadiran'] = $this->Kehadiran_model->getDataAbsen();
+        if ($data['guru']['level_id'] == '2') {
+            $data['kehadiran'] = $this->Kehadiran_model->getDataAbsenStaff();
+        } else {
+            $data['kehadiran'] = $this->Kehadiran_model->getDataAbsenGuru();
+        }
 
         // $kelas = $data['siswa']['kelas'];
         // var_dump($data['siswa']);

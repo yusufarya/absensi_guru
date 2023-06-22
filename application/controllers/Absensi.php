@@ -24,7 +24,7 @@ class Absensi extends CI_Controller
         $data['lvluser'] = $data['admin']['level_id'];
         $guru = $data['admin']['nama'];
         $data['kodeAbs'] = $this->db->get('kd_minggu')->result_array();
-        $data['absensi'] = $this->Kehadiran_model->getDataAbsen();
+        $data['absensi'] = $this->Kehadiran_model->getDataAbsenStaff();
         $data['host'] = "http://$_SERVER[SERVER_NAME]/absensi_guru/assets/adminlte/";
 
         $data['mapel'] = $this->Mapel_model->getJadwalGuru();
@@ -156,16 +156,14 @@ class Absensi extends CI_Controller
 
     function absensi()
     {
-        $data['title'] = 'Absensi';
+        $data['title'] = 'Absensi Guru';
         $data['active'] = 'Mguru';
 
         $data['admin'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['lvluser'] = $data['admin']['level_id'];
-        // $data['siswa'] = $this->User_model->getSiswa();
-        $data['absensi'] = $this->Kehadiran_model->getDataAbsen();
+        $data['absensi'] = $this->Kehadiran_model->getDataAbsenGuru();
         $data['host'] = "http://$_SERVER[SERVER_NAME]/absensi_guru/assets/adminlte/";
-        // var_dump($data['host']);
-        // $data['mapel'] = $this->Mapel_model->getdataMapel();
+
         $data['mapel'] = $this->Mapel_model->getJadwalGuru();
 
         $this->load->view('templates_sys/header', $data);
@@ -182,13 +180,11 @@ class Absensi extends CI_Controller
 
         $data['admin'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data['lvluser'] = $data['admin']['level_id'];
-        // $data['siswa'] = $this->User_model->getSiswa();
         $data['minggu'] = $this->Kehadiran_model->getMinggu();
-        // var_dump($data['minggu']);
-        $data['absensi'] = $this->Kehadiran_model->getDataAbsen();
+        // $data['absensi'] = $this->Kehadiran_model->getDataAbsenGuru();
         $data['host'] = "http://$_SERVER[SERVER_NAME]/absensi_guru/assets/adminlte/";
-        // var_dump($data['host']);
-        $data['mapel'] = $this->Mapel_model->getdataMapel();
+
+        // $data['mapel'] = $this->Mapel_model->getdataMapel();
 
         $this->load->view('templates_sys/header', $data);
         $this->load->view('templates_sys/topbar', $data);

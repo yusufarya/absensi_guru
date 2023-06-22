@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2023 pada 08.15
+-- Waktu pembuatan: 22 Jun 2023 pada 17.06
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.19
 
@@ -39,7 +39,7 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id`, `kode_absen`, `batas_absen`, `semester`) VALUES
-(1, '001', '08:10:00', 1);
+(1, '001', '08:45:00', 1);
 
 -- --------------------------------------------------------
 
@@ -135,8 +135,116 @@ CREATE TABLE `kehadiran` (
 --
 
 INSERT INTO `kehadiran` (`id`, `guru`, `kode`, `semester`, `jam`, `jam_keluar`, `tanggal`, `status`, `keterangan`, `mapel_id`, `hari`) VALUES
-(293, 2, '001', '1', '23:19:35', '23:33:25', '2023-06-20', 'Y', 'Hadir', '0', 'Selasa'),
-(294, 10, '001', '1', '23:29:22', NULL, '2023-06-20', 'Y', 'Hadir', '12', 'Selasa');
+(306, 15, '001', '1', '21:46:34', NULL, '2023-06-22', 'Y', 'Hadir', '2', 'Kamis'),
+(307, 2, '001', '1', '21:47:17', '21:47:20', '2023-06-22', 'Y', 'Hadir', '0', 'Kamis'),
+(308, 14, '001', '1', '21:47:38', '21:47:44', '2023-06-22', 'Y', 'Hadir', '0', 'Kamis'),
+(309, 10, '001', '1', '22:00:45', NULL, '2023-06-22', 'Y', 'Hadir', '12', 'Kamis'),
+(310, 12, '001', '1', '22:04:24', NULL, '2023-06-22', 'Y', 'Hadir', '16', 'Kamis'),
+(311, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(312, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(313, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(314, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(315, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(316, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(317, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(318, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(319, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(320, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(321, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(322, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '', ''),
+(323, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(324, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(325, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(326, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(327, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(328, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(329, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(330, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(331, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(332, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(333, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(334, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '11', 'Kamis'),
+(335, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(336, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(337, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(338, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(339, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(340, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(341, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(342, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(343, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(344, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(345, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '2', 'Kamis'),
+(346, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(347, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(348, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(349, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(350, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(351, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(352, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(353, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(354, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(355, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(356, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '16', 'Kamis'),
+(357, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(358, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(359, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(360, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(361, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(362, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(363, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(364, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(365, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(366, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(367, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '12', 'Kamis'),
+(368, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(369, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(370, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(371, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(372, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(373, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(374, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(375, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(376, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(377, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(378, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(379, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '23', 'Kamis'),
+(380, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(381, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(382, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(383, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(384, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(385, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(386, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(387, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(388, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(389, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(390, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(391, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '48', 'Kamis'),
+(392, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(393, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(394, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(395, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(396, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(397, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(398, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(399, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(400, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(401, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(402, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(403, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '65', 'Kamis'),
+(404, 6, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(405, 8, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(406, 9, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(407, 10, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(408, 11, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(409, 12, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(410, 13, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(411, 15, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(412, 16, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(413, 17, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(414, 18, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis'),
+(415, 19, '001', '1', '00:00:00', NULL, '0000-00-00', 'N', 'Tidak Hadir', '57', 'Kamis');
 
 -- --------------------------------------------------------
 
@@ -751,7 +859,92 @@ INSERT INTO `log_aktivitas` (`id`, `nama`, `jam`, `tanggal`, `keterangan`) VALUE
 (643, 'Admin absensi', '23:24:12', '2023-06-20', 'Melihat Jadwal Guru'),
 (644, 'Admin absensi', '23:27:38', '2023-06-20', 'Melihat Jadwal Guru'),
 (645, '', '23:29:03', '2023-06-20', 'Mengubah jadwal guru '),
-(646, 'Admin absensi', '23:29:03', '2023-06-20', 'Melihat Jadwal Guru');
+(646, 'Admin absensi', '23:29:03', '2023-06-20', 'Melihat Jadwal Guru'),
+(647, 'Admin absensi', '20:59:25', '2023-06-21', 'Melihat Jadwal Guru'),
+(648, 'Admin absensi', '21:33:48', '2023-06-21', 'Melihat Jadwal Guru'),
+(649, 'Admin absensi', '21:33:51', '2023-06-21', 'Melihat Mata Pelajaran Guru'),
+(650, 'Admin absensi', '21:33:59', '2023-06-21', 'Melihat Mata Pelajaran Guru'),
+(651, 'Admin absensi', '21:34:11', '2023-06-21', 'Melihat Jadwal Guru'),
+(652, 'Admin absensi', '21:35:23', '2023-06-21', 'Melihat Jadwal Guru'),
+(653, '', '21:36:14', '2023-06-21', 'Mengubah jadwal guru '),
+(654, 'Admin absensi', '21:36:14', '2023-06-21', 'Melihat Jadwal Guru'),
+(655, 'Admin absensi', '21:38:35', '2023-06-21', 'Mengganti kode pertemuan'),
+(656, 'Admin absensi', '21:38:46', '2023-06-21', 'Melihat Jadwal Guru'),
+(657, 'Admin absensi', '21:41:50', '2023-06-21', 'Melihat Data User'),
+(658, 'Admin absensi', '21:41:52', '2023-06-21', 'Melihat Data Guru '),
+(659, 'Admin absensi', '21:41:54', '2023-06-21', 'Melihat Data Staf'),
+(660, 'Admin absensi', '21:00:36', '2023-06-22', 'Melihat Data User'),
+(661, 'Admin absensi', '21:00:51', '2023-06-22', 'Mengubah data user '),
+(662, 'Admin absensi', '21:00:51', '2023-06-22', 'Melihat Data User'),
+(663, 'Admin absensi', '21:00:53', '2023-06-22', 'Melihat Data Guru '),
+(664, 'Admin absensi', '21:01:26', '2023-06-22', 'Mengubah data user '),
+(665, 'Admin absensi', '21:01:26', '2023-06-22', 'Melihat Data Guru '),
+(666, 'Admin absensi', '21:01:48', '2023-06-22', 'Mengubah data user '),
+(667, 'Admin absensi', '21:01:48', '2023-06-22', 'Melihat Data Guru '),
+(668, 'Admin absensi', '21:01:54', '2023-06-22', 'Melihat Data Staf'),
+(669, 'Admin absensi', '21:02:01', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(670, '', '21:02:23', '2023-06-22', 'Mengubah Mata Pelajaran Guru '),
+(671, 'Admin absensi', '21:02:23', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(672, 'Admin absensi', '21:02:46', '2023-06-22', 'Melihat Data Staf'),
+(673, 'Admin absensi', '21:02:47', '2023-06-22', 'Melihat Data Guru '),
+(674, 'Admin absensi', '21:03:20', '2023-06-22', 'Menambah data guru '),
+(675, 'Admin absensi', '21:03:20', '2023-06-22', 'Melihat Data Guru '),
+(676, 'Admin absensi', '21:03:26', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(677, '', '21:03:41', '2023-06-22', 'Mengubah Mata Pelajaran Guru '),
+(678, 'Admin absensi', '21:03:41', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(679, 'Admin absensi', '21:04:10', '2023-06-22', 'Melihat Jadwal Guru'),
+(680, '', '21:05:41', '2023-06-22', 'Mengubah jadwal guru '),
+(681, 'Admin absensi', '21:05:41', '2023-06-22', 'Melihat Jadwal Guru'),
+(682, 'Admin absensi', '21:34:01', '2023-06-22', 'Mengubah Password'),
+(683, 'Admin absensi', '21:34:39', '2023-06-22', 'Mengubah Password'),
+(684, 'Admin absensi', '21:34:43', '2023-06-22', 'Melihat Jadwal Guru'),
+(685, '', '21:35:00', '2023-06-22', 'Mengubah jadwal guru '),
+(686, 'Admin absensi', '21:35:00', '2023-06-22', 'Melihat Jadwal Guru'),
+(687, 'Admin absensi', '21:42:32', '2023-06-22', 'Melihat Jadwal Guru'),
+(688, '', '21:42:58', '2023-06-22', 'Mengubah jadwal guru '),
+(689, 'Admin absensi', '21:42:58', '2023-06-22', 'Melihat Jadwal Guru'),
+(690, 'Admin absensi', '21:47:58', '2023-06-22', 'Melihat Jadwal Guru'),
+(691, 'Admin absensi', '21:48:03', '2023-06-22', 'Melihat Data Guru '),
+(692, 'Admin absensi', '21:48:25', '2023-06-22', 'Menambah data guru '),
+(693, 'Admin absensi', '21:48:25', '2023-06-22', 'Melihat Data Guru '),
+(694, 'Admin absensi', '21:50:18', '2023-06-22', 'Melihat Data Guru '),
+(695, 'Admin absensi', '21:53:23', '2023-06-22', 'Menambah data guru '),
+(696, 'Admin absensi', '21:53:23', '2023-06-22', 'Melihat Data Guru '),
+(697, 'Admin absensi', '21:53:54', '2023-06-22', 'Menambah data guru '),
+(698, 'Admin absensi', '21:53:54', '2023-06-22', 'Melihat Data Guru '),
+(699, 'Admin absensi', '21:55:40', '2023-06-22', 'Melihat Data Guru '),
+(700, 'Admin absensi', '21:58:30', '2023-06-22', 'Menambah data guru '),
+(701, 'Admin absensi', '21:58:30', '2023-06-22', 'Melihat Data Guru '),
+(702, 'Admin absensi', '21:58:41', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(703, '', '21:59:00', '2023-06-22', 'Mengubah Mata Pelajaran Guru '),
+(704, 'Admin absensi', '21:59:00', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(705, '', '21:59:13', '2023-06-22', 'Mengubah Mata Pelajaran Guru '),
+(706, 'Admin absensi', '21:59:13', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(707, '', '21:59:28', '2023-06-22', 'Mengubah Mata Pelajaran Guru '),
+(708, 'Admin absensi', '21:59:28', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(709, 'Admin absensi', '21:59:39', '2023-06-22', 'Melihat Mata Pelajaran Guru'),
+(710, 'Admin absensi', '21:59:45', '2023-06-22', 'Melihat Data Guru '),
+(711, 'Admin absensi', '21:59:56', '2023-06-22', 'Mengubah data user '),
+(712, 'Admin absensi', '21:59:56', '2023-06-22', 'Melihat Data Guru '),
+(713, 'Admin absensi', '22:00:01', '2023-06-22', 'Melihat Data Staf'),
+(714, 'Admin absensi', '22:00:04', '2023-06-22', 'Melihat Data User'),
+(715, 'Admin absensi', '22:00:17', '2023-06-22', 'Melihat Jadwal Guru'),
+(716, '', '22:00:31', '2023-06-22', 'Mengubah jadwal guru '),
+(717, 'Admin absensi', '22:00:31', '2023-06-22', 'Melihat Jadwal Guru'),
+(718, 'Admin absensi', '22:01:14', '2023-06-22', 'Melihat Jadwal Guru'),
+(719, '', '22:01:40', '2023-06-22', 'Mengubah jadwal guru '),
+(720, 'Admin absensi', '22:01:40', '2023-06-22', 'Melihat Jadwal Guru'),
+(721, 'Admin absensi', '22:02:36', '2023-06-22', 'Melihat Jadwal Guru'),
+(722, '', '22:02:53', '2023-06-22', 'Mengubah jadwal guru '),
+(723, 'Admin absensi', '22:02:53', '2023-06-22', 'Melihat Jadwal Guru'),
+(724, '', '22:03:09', '2023-06-22', 'Mengubah jadwal guru '),
+(725, 'Admin absensi', '22:03:09', '2023-06-22', 'Melihat Jadwal Guru'),
+(726, 'Admin absensi', '22:03:45', '2023-06-22', 'Melihat Jadwal Guru'),
+(727, '', '22:04:02', '2023-06-22', 'Mengubah jadwal guru '),
+(728, 'Admin absensi', '22:04:02', '2023-06-22', 'Melihat Jadwal Guru'),
+(729, 'Admin absensi', '22:05:19', '2023-06-22', 'Melihat Jadwal Guru'),
+(730, 'Admin absensi', '22:05:37', '2023-06-22', 'Mengganti kode pertemuan'),
+(731, 'Admin absensi', '22:05:45', '2023-06-22', 'Mengganti kode pertemuan');
 
 -- --------------------------------------------------------
 
@@ -778,7 +971,7 @@ CREATE TABLE `mapel` (
 
 INSERT INTO `mapel` (`id`, `kode_mapel`, `pelajaran`, `jam_mulai`, `batas_absen`, `jam_selesai`, `guru`, `hari_id`, `kelas`, `jurusan`) VALUES
 (1, '00001', 'Bahasa Inggris', '12:20:00', '12:30:00', '12:50:00', 10, 6, '1', ''),
-(2, '00002', 'Matematika', '10:06:30', NULL, '11:45:59', 0, 4, '1', ''),
+(2, '00002', 'Matematika', '21:55:30', '21:59:00', '23:00:30', 15, 4, '1', ''),
 (3, '00003', 'Sejarah', '11:02:00', '11:16:55', '12:11:00', 12, 2, '1', 'IPS'),
 (4, '00004', 'Kewarganegaraan', '10:05:00', NULL, '11:00:00', 0, 6, '1', ''),
 (5, '00006', 'Bahasa Indonesia', '08:35:00', '08:35:00', '09:31:00', 4, 2, '1', ''),
@@ -786,60 +979,60 @@ INSERT INTO `mapel` (`id`, `kode_mapel`, `pelajaran`, `jam_mulai`, `batas_absen`
 (7, '00005', 'Agama', '07:25:00', '07:35:00', '09:00:00', 0, 6, '1', ''),
 (8, '00008', 'Sosiologi', '08:25:00', '08:35:00', '10:05:00', 13, 1, '1', 'IPS'),
 (9, '00008', 'Sosiologi', '13:30:00', '13:40:00', '14:05:00', 13, 6, '1', 'IPS'),
-(10, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 0, 3, '1', ''),
+(10, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 15, 3, '1', ''),
 (11, '00003', 'Sejarah', '10:05:00', '10:15:00', '11:25:00', 12, 4, '1', 'IPS'),
-(12, '00001', 'Bahasa Inggris', '22:30:00', '23:57:00', '23:59:00', 10, 2, '2', ''),
+(12, '00001', 'Bahasa Inggris', '22:30:00', '23:57:00', '23:59:00', 10, 4, '2', ''),
 (13, '00009', 'Geografi', '07:25:00', '07:35:00', '08:25:00', 0, 2, '1', 'IPS'),
-(15, '00002', 'Matematika', '10:06:30', NULL, '11:45:59', 0, 6, '2', ''),
-(16, '00003', 'Sejarah', '21:31:00', '21:50:55', '22:16:00', 12, 1, '2', 'IPS'),
+(15, '00002', 'Matematika', '10:06:30', NULL, '11:45:59', 15, 6, '2', ''),
+(16, '00003', 'Sejarah', '22:30:00', '22:50:55', '23:10:00', 12, 4, '2', 'IPS'),
 (17, '00004', 'Kewarganegaraan', '10:05:00', NULL, '11:00:00', 0, 5, '2', ''),
 (18, '00006', 'Bahasa Indonesia', '07:25:00', '07:35:00', '09:00:00', 4, 3, '3', ''),
 (20, '00005', 'Agama', '07:25:00', '07:35:00', '09:00:00', 0, 4, '2', ''),
 (21, '00008', 'Sosiologi', '08:25:00', '08:35:00', '10:05:00', 13, 1, '2', 'IPS'),
 (22, '00008', 'Sosiologi', '10:25:00', '10:35:00', '12:05:00', 13, 3, '2', 'IPS'),
-(23, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 0, 4, '2', ''),
+(23, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 15, 4, '2', ''),
 (24, '00003', 'Sejarah', '10:05:00', '10:15:00', '11:25:00', 12, 3, '2', 'IPS'),
 (26, '00009', 'Geografi', '08:25:00', '08:35:00', '09:00:00', 0, 2, '2', 'IPS'),
 (27, '00007', 'Komputer', '21:35:00', '21:48:58', '22:35:22', 6, 5, '1', ''),
 (28, '00004', 'Kewarganegaraan', '10:10:00', '10:20:00', '11:05:00', 0, 2, '1', ''),
 (29, '00010', 'Kimia', '11:05:00', '08:35:00', '12:05:00', 8, 1, '1', 'IPA'),
-(30, '00011', 'Fisika', '10:25:00', '10:35:00', '12:05:00', 15, 6, '1', 'IPA'),
-(31, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 21, 3, '1', 'IPA'),
+(30, '00011', 'Fisika', '10:25:00', '10:35:00', '12:05:00', 18, 6, '1', 'IPA'),
+(31, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 19, 3, '1', 'IPA'),
 (32, '00010', 'Kimia', '09:25:00', '08:35:00', '10:05:00', 8, 3, '2', 'IPA'),
-(33, '00011', 'Fisika', '10:25:00', '10:35:00', '12:05:00', 15, 2, '2', 'IPA'),
-(34, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 21, 2, '2', 'IPA'),
+(33, '00011', 'Fisika', '10:25:00', '10:35:00', '12:05:00', 18, 2, '2', 'IPA'),
+(34, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 19, 2, '2', 'IPA'),
 (35, '00009', 'Geografi', '08:25:00', '08:35:00', '09:00:00', 0, 4, '1', 'IPS'),
 (36, '00006', 'Bahasa Indonesia', '07:25:00', '07:35:00', '09:00:00', 4, 4, '1', ''),
 (37, '00006', 'Bahasa Indonesia', '07:25:00', '07:35:00', '09:00:00', 4, 5, '2', ''),
 (38, '00005', 'Agama', '09:25:00', '10:35:00', '11:30:00', 0, 3, '3', ''),
 (39, '00006', 'Bahasa Indonesia', '07:55:00', '08:05:00', '09:10:00', 4, 1, '3', ''),
-(42, '00011', 'Fisika', '11:25:00', '11:35:00', '11:05:00', 15, 1, '3', 'IPA'),
-(43, '00011', 'Fisika', '08:25:00', '08:35:00', '10:05:00', 15, 3, '3', 'IPA'),
+(42, '00011', 'Fisika', '11:25:00', '11:35:00', '11:05:00', 18, 1, '3', 'IPA'),
+(43, '00011', 'Fisika', '08:25:00', '08:35:00', '10:05:00', 18, 3, '3', 'IPA'),
 (44, '00009', 'Geografi', '10:25:00', '10:35:00', '11:25:00', 0, 1, '3', 'IPS'),
 (45, '00009', 'Geografi', '08:25:00', '08:35:00', '09:00:00', 0, 4, '3', 'IPS'),
 (46, '00009', 'Geografi', '07:25:00', '07:35:00', '08:40:00', 0, 6, '2', 'IPS'),
-(47, '00012', 'Biologi', '07:10:00', '07:25:00', '09:00:00', 21, 5, '1', 'IPA'),
-(48, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 21, 4, '3', 'IPA'),
+(47, '00012', 'Biologi', '07:10:00', '07:25:00', '09:00:00', 19, 5, '1', 'IPA'),
+(48, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 19, 4, '3', 'IPA'),
 (49, '00004', 'Kewarganegaraan', '10:05:00', '10:35:00', '11:00:00', 0, 4, '3', ''),
 (50, '00004', 'Kewarganegaraan', '08:56:00', '09:10:00', '10:15:00', 0, 6, '3', ''),
 (51, '00006', 'Bahasa Indonesia', '07:25:00', '07:35:00', '09:00:00', 4, 1, '2', ''),
-(52, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 21, 1, '2', 'IPA'),
-(53, '00012', 'Biologi', '08:05:00', '08:15:00', '09:25:00', 21, 6, '3', 'IPA'),
+(52, '00012', 'Biologi', '10:05:00', '10:15:00', '11:25:00', 19, 1, '2', 'IPA'),
+(53, '00012', 'Biologi', '08:05:00', '08:15:00', '09:25:00', 19, 6, '3', 'IPA'),
 (54, '00010', 'Kimia', '08:25:00', '08:35:00', '10:05:00', 8, 2, '3', 'IPA'),
 (55, '00010', 'Kimia', '08:25:00', '08:35:00', '10:05:00', 8, 5, '1', 'IPA'),
 (56, '00010', 'Kimia', '08:25:00', '08:35:00', '10:05:00', 8, 1, '2', 'IPA'),
 (57, '00010', 'Kimia', '00:25:00', '08:35:00', '10:05:00', 8, 4, '3', 'IPA'),
 (58, '00008', 'Sosiologi', '10:25:00', '10:35:00', '12:05:00', 13, 2, '3', 'IPS'),
 (59, '00008', 'Sosiologi', '10:25:00', '10:35:00', '12:05:00', 13, 6, '3', 'IPS'),
-(60, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 0, 2, '3', ''),
-(61, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 0, 5, '3', ''),
+(60, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 15, 2, '3', ''),
+(61, '00002', 'Matematika', '07:25:00', '07:35:00', '08:45:00', 15, 5, '3', ''),
 (62, '00004', 'Kewarganegaraan', '10:05:00', '10:35:00', '11:00:00', 0, 3, '1', ''),
-(63, '00013', 'Penjaskes', '07:05:00', '07:15:00', '08:25:00', 9, 3, '1', ''),
+(63, '00013', 'Penjaskes', '21:40:00', '21:55:00', '22:40:00', 9, 3, '1', ''),
 (64, '00013', 'Penjaskes', '07:05:00', '07:15:00', '08:30:00', 9, 2, '2', ''),
 (65, '00013', 'Penjaskes', '07:05:00', '07:15:00', '08:30:00', 9, 4, '3', ''),
-(66, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 0, 2, '1', ''),
-(67, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 0, 3, '2', ''),
-(68, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 0, 5, '3', ''),
+(66, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 16, 2, '1', ''),
+(67, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 16, 3, '2', ''),
+(68, '00014', 'Seni Budaya', '10:25:00', '10:35:00', '11:30:00', 16, 5, '3', ''),
 (69, '00007', 'Komputer', '09:10:00', '09:15:00', '11:00:00', 6, 3, '3', ''),
 (70, '00001', 'Bahasa Inggris II', '09:04:15', '09:14:58', '10:27:00', 11, 3, '1', '');
 
@@ -864,7 +1057,7 @@ CREATE TABLE `users` (
   `level_id` int(11) NOT NULL,
   `gambar` varchar(11) NOT NULL,
   `tgl_dibuat` date NOT NULL,
-  `no_absen` char(11) NOT NULL DEFAULT '0'
+  `no_absen` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -872,16 +1065,21 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`kode`, `nama`, `nip`, `jurusan`, `jenis_kel`, `tempat_lahir`, `tgl_lahir`, `alamat`, `email`, `password`, `status`, `level_id`, `gambar`, `tgl_dibuat`, `no_absen`) VALUES
-(1, 'Admin absensi', '0032C1121A1030', '', 'Laki-laki', 'Tangerang', '1996-05-02', '', 'admin@gmail.com', '$2y$10$8CZJudgt7aVQkmOt5faV0uk/EbbkxVXDDw.U8LXNeO2WDr8LS4vSi', 1, 1, 'default.jpg', '2023-05-27', '0'),
-(2, 'Staff Abc', '032C11121A103', '', 'Laki-laki', 'Jakarta, Indonesia', '1999-05-10', '', 'staff@gmail.com', '$2y$10$I5mrJMtJYBtbAIotDq8dcehmiF8wZndHDNlQaDe2ow5wNrXD7xeHS', 1, 2, 'default.jpg', '2023-05-27', '10'),
-(6, 'Yusuf Aryadilla', '032C11121A103', '', 'Laki-laki', 'Jakarta, Indonesia', '0000-00-00', '', 'aryaherby29nov2k@gmail.com', '$2y$10$Ag7jLPMEw/ul34M74sT/wuZWa0/wPq1gFpG1b1J7zVLC6Uxded6fi', 1, 3, 'default.jpg', '2023-05-27', '1'),
-(8, 'Nan anani', '032C11121A020', '', 'Perempuan', 'Jakarta, Indonesia', '0000-00-00', '', 'nana@gmail.com', '$2y$10$4McQ3oi26c5iyd1sgVX6gO2yLdf1DRKL52FxrKHPjv6FEo4vi88K6', 1, 3, 'default.jpg', '2023-05-27', '3'),
-(9, 'Guru Olahraga', '10011121A103', '', 'Laki-laki', '', NULL, '', 'guruolahraga@gmail.com', '$2y$10$u0UelxVfQk37bGlzRQj75ObcWa5zy0XT5aZ0arxYas6TYigrJfRmC', 1, 3, 'default.jpg', '2023-06-09', '4'),
-(10, 'Ms. Gina khamila', '032000021A103', '', 'Perempuan', '', NULL, '', 'gk@gmail.com', '$2y$10$HdtOqkb8dgoBnyjpZKXkV.wKMWju9H3E5aSYVD/n9L8nXk1W2V5eu', 1, 3, 'default.jpg', '2023-06-09', '5'),
-(11, 'Mr. Jhon', '0999811210103', '', 'Laki-laki', '', NULL, '', 'mrjhon@gmail.com', '$2y$10$1bWvJYIOPeikqLUBlkBgH.QjMxl4NHi1JXl036xOaqXxb4EDrj2Ti', 1, 3, 'default.jpg', '2023-06-09', '6'),
-(12, 'Sunanjar', '00091121441030', '', 'Laki-laki', '', NULL, '', 'sunanjar@gmail.com', '$2y$10$MQ0m1VLMITWXJeBhD/wE7ONxkovECNhjeFCVT/vV1mGn7a..RhSKW', 1, 3, 'default.jpg', '2023-06-09', '7'),
-(13, 'Burhan Kwg', '03231121000103', '', 'Laki-laki', '', NULL, '', 'kwg@gmail.com', '$2y$10$dEgBcIwAdjz.qbsc9TCyFebWklJedO3IEJxYHont4fogOEpjelLLe', 1, 3, 'default.jpg', '2023-06-10', '8'),
-(14, 'Staff Tata Usaha', '-', '', 'Perempuan', 'Tangerang', '2000-06-29', '', 'staf_tu@gmail.com', '$2y$10$HFFx3xzayHdTf1UNYZqqmunWgMpe4LjmXjosbroKmR3I0QE0cORBK', 1, 2, 'default.jpg', '2023-06-10', '9');
+(1, 'Admin absensi', '0032C1121A1030', '', 'Laki-laki', 'Tangerang', '1996-05-02', '', 'admin@gmail.com', '$2y$10$8ePUz7S8tes8uo2l7Tq.zOLjSsc2cQFa8Wt7tzzJfjIsKw5IN9cYO', 1, 1, 'default.jpg', '2023-05-27', 0),
+(2, 'Staff Abc', '032C11121A103', '', 'Laki-laki', 'Jakarta, Indonesia', '1999-05-10', '', 'staff@gmail.com', '$2y$10$I5mrJMtJYBtbAIotDq8dcehmiF8wZndHDNlQaDe2ow5wNrXD7xeHS', 1, 2, 'default.jpg', '2023-05-27', 2),
+(6, 'Yusuf Aryadilla', '032C11121A103', '', 'Laki-laki', 'Jakarta, Indonesia', '0000-00-00', '', 'yad@gmail.com', '$2y$10$Ag7jLPMEw/ul34M74sT/wuZWa0/wPq1gFpG1b1J7zVLC6Uxded6fi', 1, 3, 'default.jpg', '2023-05-27', 1),
+(8, 'Nan anani', '032C11121A020', '', 'Perempuan', 'Jakarta, Indonesia', '0000-00-00', '', 'nana@gmail.com', '$2y$10$4McQ3oi26c5iyd1sgVX6gO2yLdf1DRKL52FxrKHPjv6FEo4vi88K6', 1, 3, 'default.jpg', '2023-05-27', 3),
+(9, 'Guru Olahraga', '10011121A103', '', 'Laki-laki', 'Jakarta', '1999-01-01', '', 'guruolahraga@gmail.com', '$2y$10$u0UelxVfQk37bGlzRQj75ObcWa5zy0XT5aZ0arxYas6TYigrJfRmC', 1, 3, 'default.jpg', '2023-06-09', 4),
+(10, 'Ms. Gina khamila', '032000021A103', '', 'Perempuan', '', NULL, '', 'gk@gmail.com', '$2y$10$HdtOqkb8dgoBnyjpZKXkV.wKMWju9H3E5aSYVD/n9L8nXk1W2V5eu', 1, 3, 'default.jpg', '2023-06-09', 5),
+(11, 'Mr. Jhon', '0999811210103', '', 'Laki-laki', '', NULL, '', 'mrjhon@gmail.com', '$2y$10$1bWvJYIOPeikqLUBlkBgH.QjMxl4NHi1JXl036xOaqXxb4EDrj2Ti', 1, 3, 'default.jpg', '2023-06-09', 6),
+(12, 'Sunanjar', '00091121441030', '', 'Laki-laki', '', NULL, '', 'sunanjar@gmail.com', '$2y$10$MQ0m1VLMITWXJeBhD/wE7ONxkovECNhjeFCVT/vV1mGn7a..RhSKW', 1, 3, 'default.jpg', '2023-06-09', 7),
+(13, 'Burhan Kwg', '03231121000103', '', 'Laki-laki', '', NULL, '', 'kwg@gmail.com', '$2y$10$dEgBcIwAdjz.qbsc9TCyFebWklJedO3IEJxYHont4fogOEpjelLLe', 1, 3, 'default.jpg', '2023-06-10', 8),
+(14, 'Staff Tata Usaha', '-', '', 'Perempuan', 'Tangerang', '2000-06-29', '', 'staf_tu@gmail.com', '$2y$10$HFFx3xzayHdTf1UNYZqqmunWgMpe4LjmXjosbroKmR3I0QE0cORBK', 1, 2, 'default.jpg', '2023-06-10', 9),
+(15, 'Budi Senja', '098977891002', '', 'Laki-laki', '', NULL, '', 'budis@gmail.com', '$2y$10$HvxdCEwyyNpDlsi2vd1EQeI1zteeJVhAYWBQvtmuPYkXFOcVzoJ5m', 1, 3, 'default.jpg', '2023-06-22', 10),
+(16, 'sani say', '78829292392', '', 'Perempuan', '', NULL, '', 'sani@gmail.com', '$2y$10$cZ.s.6U2cORtBj6cT6dFSuNGZMW0OJoPeFs9HJTm9Bn.0IRqomUdi', 1, 3, 'default.jpg', '2023-06-22', 11),
+(17, 'Yusuf ad', '324242342342', '', 'Laki-laki', '', '0000-00-00', '', 'yy@gmail.com', '$2y$10$mV2912brene6K3u1KrMx6OdTC.GWWaCrcu7FP7fVqRRFOdOBI/n0q', 0, 3, 'default.jpg', '2023-06-22', 12),
+(18, 'sulistia putri', '7347237489238', '', 'Perempuan', '', NULL, '', 'sulis_p@gmail.com', '$2y$10$nByFF.34RUe8/IzTJ8dgjOzbXhI0E.wq5a2YoyLr7KmVnLrjxeDLq', 1, 3, 'default.jpg', '2023-06-22', 13),
+(19, 'tanjung', '90832048280', '', 'Perempuan', '', NULL, '', 'tanjung@gmail.com', '$2y$10$pjMlv5F8V4mHtviszJYfhOOvnbf660b7IwvskeqcCXY1jxTyh0rwW', 1, 3, 'default.jpg', '2023-06-22', 14);
 
 --
 -- Indexes for dumped tables
@@ -967,7 +1165,7 @@ ALTER TABLE `kd_minggu`
 -- AUTO_INCREMENT untuk tabel `kehadiran`
 --
 ALTER TABLE `kehadiran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=416;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelas`
@@ -985,7 +1183,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT untuk tabel `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=647;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=732;
 
 --
 -- AUTO_INCREMENT untuk tabel `mapel`
@@ -997,7 +1195,7 @@ ALTER TABLE `mapel`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `kode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `kode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

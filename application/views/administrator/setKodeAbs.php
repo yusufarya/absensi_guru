@@ -60,7 +60,7 @@ if ($sm == '1') {
                             </div>
                             <div class="col-lg-3">
                                 <label for="batas_absen" class="ml-1">Batas Absen</label>
-                                <input type="time" class="form-control" name="batas_absen" id="batas_absen" value="<?= $batas_absen ?>">
+                                <input type="text" class="form-control" name="batas_absen" id="batas_absen" value="<?= $batas_absen ?>">
                             </div>
                             <div class="col-lg-1">
                                 <label class="ml-2"></label>
