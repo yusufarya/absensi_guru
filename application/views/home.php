@@ -51,7 +51,7 @@ if ($hadir_out) {
         </div>
         <div class="col-lg-6 ps-4 p-3 shadow" style="font-size: 15px;">
             <div class="row">
-                <div class="col">
+                <div class="row">
                     <h5 class='shadow px-2'>User Info</h5>
                     <table class="table-sm text-white ms-1">
                         <tr>
@@ -76,25 +76,27 @@ if ($hadir_out) {
                     </table>
                 </div>
                 <?php if ($guru['level_id'] == 2) { ?>
-                    <div class="col-md-3">
-                        <?php if ($jam_sekarang >= $batas_absen) { ?>
-                            <button style="margin-top: 90px; float: right;" class="btn btn-success me-3" disabled>Absen Telah Ditutup</button>
-                        <?php } else { ?>
-                            <?php if ($sudahkahAbsenMasuk == 'N') { ?>
-                                <button style="margin-top: 90px; float: right;" onclick="getKdAbs('', <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Masuk</button>
+                    <div class="row" style="height: auto; margin-top: 25px;">
+                        <div class="col-md-6">
+                            <?php if ($jam_sekarang >= $batas_absen) { ?>
+                                <button class="btn btn-success me-3" disabled>Absen Telah Ditutup</button>
                             <?php } else { ?>
-                                <button style="margin-top: 90px; float: right;" class="btn btn-success me-3">Telah Absen</button>
+                                <?php if ($sudahkahAbsenMasuk == 'N') { ?>
+                                    <button onclick="getKdAbs('', <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Masuk</button>
+                                <?php } else { ?>
+                                    <button class="btn btn-success me-3">Telah Absen</button>
+                                <?php } ?>
                             <?php } ?>
-                        <?php } ?>
-                    </div>
-                    <div class="col-md-3">
-                        <?php if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'N') { ?>
-                            <button style="margin-top: 90px; float: right;" onclick="getKdAbs_out(<?= $hadir['id'] ?>, <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Keluar</button>
-                        <?php } else if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'Y') { ?>
-                            <button style="margin-top: 90px; float: right;" class="btn btn-success me-3">Telah Absen</button>
-                        <?php } else { ?>
-                            <button style="margin-top: 90px; float: right;" class="btn btn-dark me-3" disabled> Absen Keluar </button>
-                        <?php } ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'N') { ?>
+                                <button onclick="getKdAbs_out(<?= $hadir['id'] ?>, <?php echo $guru['no_absen'] ?>)" class="btn btn-primary me-3">Absen Keluar</button>
+                            <?php } else if ($sudahkahAbsenMasuk == 'Y' && $sudahkahAbsenKeluar == 'Y') { ?>
+                                <button class="btn btn-success me-3">Telah Absen</button>
+                            <?php } else { ?>
+                                <button class="btn btn-dark me-3" disabled> Absen Keluar </button>
+                            <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
 
@@ -163,12 +165,7 @@ if ($hadir_out) {
                                         $mapel_id = '';
                                         $s_id = '';
                                     }
-                                    // echo '<pre>';
-                                    // print_r($hadir);
-                                    // echo '</pre>';
-                                    // echo $hadir ." == ".$kode. '<br>';
-                                    // echo $jam_sekarang . " == " . $m->jam_selesai . '<br>';
-                                    // echo $jam_sekarang ." == ".$m->batas_absen. '<br>';
+
                                     if ($hadir == '' and $jam_sekarang <= $m->jam_selesai and $kode == '' and $s_id == '') { ?>
                                         <?php if ($hadir == '' and $jam_sekarang <= $m->batas_absen or $jam_sekarang <= $m->jam_mulai) { ?>
                                             <td style="text-align: center;" onclick="getKdAbs(<?php echo $m->id; ?>, <?php echo $guru['no_absen'] ?>)"><button class="btn btn-sm btn-danger">Absen</button></td>

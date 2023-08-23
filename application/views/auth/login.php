@@ -12,13 +12,15 @@
     <title>Login page - Absensi</title>
 </head>
 
-<body style="background-color: #d2dbdb;">
-    <div class="card shadow rounded" style="width: 700px; margin: 50px auto">
+<!-- <body style="background-color: #d2dbdb;"> -->
+
+<body style="background-image: url('<?= base_url('assets/img/bglogin.JPG') ?>'); background-size: cover; background-position: center;">
+    <div class="card shadow rounded-md" style="width: 600px; margin: 80px auto; background: rgba(229, 225, 245, 0.9);">
         <div class="row justify-content-center p-3 my-3">
             <div class="col-lg-10 col-md-10 col-12">
-                <h2 class="text-center">Login page</h2>
+                <h2 class="text-center">Login</h2>
                 <!-- <p class="text-center rounded" style="background-color: #d2dbdb; width: 160px; margin: 1px auto; font-size: 14px;">Absensi Guru & Staf</p> -->
-                <div class="px-5 py-3">
+                <div class="px-1 py-3">
                     <?php echo $this->session->flashdata('message') ?>
                     <form action="" method="post">
                         <div class="mb-3">
@@ -35,6 +37,7 @@
                         <!-- <a href="" class="text-decoration-none mt-2" style="display: inline !important; float: right">Lupa password?</a> -->
                     </form>
                 </div>
+                <br>
             </div>
         </div>
     </div>

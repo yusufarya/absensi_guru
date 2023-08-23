@@ -91,11 +91,14 @@
             y = date.getFullYear()
 
             valDate.append(d)
-            $('#date').css('fontSize', '45px')
+            $('#date').css('fontSize', '35px')
             $('#date').css('marginTop', '-5px')
-            month.append(bulan[m])
+            $('#date').css('display', 'inline')
+            month.append(bulan[m] + ' ')
+            month.append(y)
+            $('#month').css('fontSize', '35px')
             $('#month').css('marginTop', '-15px')
-            $('#month').css('fontSize', '37px')
+            $('#month').css('display', 'inline')
         }
 
         function jam() {

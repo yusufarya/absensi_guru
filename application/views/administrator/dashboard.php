@@ -24,13 +24,13 @@ $log = $query->result();
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header px-3">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0"><?php echo $title ?></h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <div class="col-sm-6 pr-4">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active"><?php echo $sysstatus  ?></li>
@@ -43,18 +43,30 @@ $log = $query->result();
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
+        <div class="container-fluid px-4">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-6 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info" style="border-left: 5px solid cyan; border-top-right-radius: 20px;">
+                        <a href="#" class="footer p-2"></a>
+                        <div class="inner pl-3 pt-2">
+                            <div class="col-md-12 pl-3 pt-0">
+                                <h3 id="dateTime"></h3>
+                                <h3 id="date"></h3>
+                                <h3 id="month"></h3>
+                            </div>
+                        </div>
+                        <div class="icon" style="float: right;">
+                        </div>
+                        <a href="#" class="small-box-footer">&nbsp;</a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-6 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info" style="border-right: 5px solid cyan; border-top-left-radius: 20px;">
-                        <div class="inner row">
-                            <div class="col-md-4 pl-3 pt-0">
-                                <h3 id="date"></h3>
-                                <h1 id="month"></h1>
-                                <h1 id="dateTime"></h1>
-                            </div>
+                        <div class="inner pl-3 pt-2">
                             <div class="col">
                                 <table class="table-sm" style="font-size: 14px;">
                                     <tr>
@@ -74,14 +86,14 @@ $log = $query->result();
                         </div>
                         <div class="icon" style="float: right;">
                         </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+                        <a href="#" class="small-box-footer">&nbsp;</a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-6 col-6">
                     <!-- small box -->
                     <div class="small-box bg-warning" style="border-right: 5px solid green; border-top-left-radius: 20px;">
-                        <div class="inner pl-3 pt-2">
+                        <div class="inner px-4 pl-3 pt-2">
                             <h3><?php echo $staff > 0 ? $staff : 0 ?></h3>
                             <p>Total Staf</p>
                         </div>
@@ -92,10 +104,10 @@ $log = $query->result();
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-6 col-6">
                     <!-- small box -->
                     <div class="small-box bg-success" style="border-right: 5px solid brown; border-top-left-radius: 20px;">
-                        <div class="inner pl-3 pt-2">
+                        <div class="inner px-4 pl-3 pt-2">
                             <h3><?php echo count($guru) ?></h3>
 
                             <p>Jumlah Guru</p>

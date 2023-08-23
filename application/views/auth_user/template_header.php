@@ -12,4 +12,6 @@
     <title>Login page - Absensi</title>
 </head>
 
-<body style="background-color: #d2dbdb;">
+<!-- <body style="background-color: #d2dbdb;"> -->
+
+<body style="background-image: url('<?= base_url('assets/img/bglogin.JPG') ?>'); background-size: cover; background-position: center;">
